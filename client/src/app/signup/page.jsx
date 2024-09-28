@@ -5,7 +5,7 @@ import { signup } from '@/Components/ServerFunctions';
 import Select from 'react-select';
 
 export default function SignUpPage(){
-    const [form, setForm] = useState({ email: "", name: "", username: "", password: "", skill: [] });
+    const [form, setForm] = useState({ email: "", name: "", userName: "", password: "", skills: [] });
     const handleForm = (field, value) => setForm((prev) => { return { ...prev, [field]: value } });
     const [selectedOptions, setSelectedOptions] = useState([]);
     
@@ -18,21 +18,15 @@ export default function SignUpPage(){
     ];
 
     const handleChange = (selected) => {
-        console.log(selected)
-        // setSelectedOptions(selected || []); // Allow empty array on deselect
-        // handleForm("skills", form.skill.push(selected[0].label) || []);
-        const skills = selected ? selected.map(option => option) : [];
-        handleForm('skill', skills);
-        console.log(skills)
+        const formSkills = selected ? selected.map(option => option) : [];
+        const skills = selected ? selected.map(option => option.label) : [];
+        setSelectedOptions(formSkills);
+        handleForm('skills', skills);
     };
-
-    // const handleChange = (selected) => {
-    //     const skills = selected ? selected.map(option => option.value) : [];
-    //     handleForm('skill', skills);
-    // };
     
     function handleSubmit(e){
         e.preventDefault();
+        console.log(form);
         signup(form).then(result => {
             if(result){
                 alert("Invalid Information")
@@ -72,10 +66,10 @@ export default function SignUpPage(){
                     autoComplete="true"
                     name="usernme"
                     id="usernme"
-                    placeholder="Enter your username"
-                    value={form.username}
+                    placeholder="Enter your userName"
+                    value={form.userName}
                     required
-                    onChange={(e) => handleForm("username", e.target.value)}
+                    onChange={(e) => handleForm("userName", e.target.value)}
                 />
                 <input
                     className="text-black"
@@ -97,7 +91,7 @@ export default function SignUpPage(){
                 options={options}
                 isMulti
                 placeholder="Click to select an option..."
-                value={form.skill}
+                value={selectedOptions}
                 onChange={handleChange}
                 className="dropdown text-black"
                 styles={{
