@@ -30,6 +30,6 @@ export async function signup(formData){
     if(response.success){
         cookies().set("access", true, {maxAge: 60*60*1});
         console.log(cookies().getAll());
-        redirect('/home');
+        redirect('/dashboard');
     }
 }
