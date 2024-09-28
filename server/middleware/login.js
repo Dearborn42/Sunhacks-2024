@@ -1,4 +1,4 @@
-import jwt from "server/node_modules/jsonwebtoken"
+import jwt from "jsonwebtoken"
 import dotenv from 'dotenv';
 // import (model) from '../models/(filename).js';
 dotenv.config();
