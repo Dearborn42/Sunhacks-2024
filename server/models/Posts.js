@@ -13,6 +13,7 @@ const postSchema = new Schema({
     },
     title:{
         type: String,
+        unique: true,
         required: true,
     },
     text:{
@@ -22,6 +23,10 @@ const postSchema = new Schema({
     desiredSkills:{
         type: Array,
         required: true,
+    },
+    creditWorth:{
+        type: Number,
+        requried: true,
     }
 }, { collection: 'Posts'});
 

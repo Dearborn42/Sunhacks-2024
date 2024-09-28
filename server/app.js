@@ -7,7 +7,9 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import mongoose from 'mongoose';
 import {login, signup} from './middleware/login.js';
+import isAuthenticated from "./middleware/auth.js";
 import account_route from "./routes/account_route.js"
+import post_route from "./routes/post_route.js";
 
 dotenv.config();
 mongoose.connect(process.env.MONGO_URI);
@@ -26,8 +28,9 @@ app.route('/').get((req, res) =>{
 });
 
 app.post("/login", login);
-app.post("/signup", signup)
-app.use("/accounts", account_route);
+app.post("/signup", signup);
+app.use("/accounts", isAuthenticated, account_route);
+app.use("/posts", isAuthenticated, post_route);
 
 
 app.listen(process.env.PORT);
