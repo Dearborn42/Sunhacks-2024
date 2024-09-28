@@ -4,6 +4,7 @@ import { useState, useContext } from "react";
 import { signup } from '@/Components/ServerFunctions';
 import Select from 'react-select';
 import {UserContext} from '../layout';
+import { useRouter } from 'next/navigation'
 
 export default function SignUpPage(){
     const {name, userName, password, email, skills:userSkills, pastWorks, credits, averageRating, update} = useContext(UserContext);
@@ -32,8 +33,11 @@ export default function SignUpPage(){
         console.log(form);
         update({...form})
         signup(form).then(result => {
-            if(result){
-                alert("Invalid Information")
+            if(result.success){
+                update(result.user);
+                router.push("/dashboard");
+            }else{
+                alert("Wrong Email or Password");
             }
         });
     }
