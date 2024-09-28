@@ -35,9 +35,14 @@ export async function signup(formData){
 }
 
 export async function getFetch(model, multi, param1, param2){
+    /* 
+        router.get("/get-multi/:skills", getPosts);
+        router.get("/get/:title/:date", getPost);
+        router.get("/get/:userName", getAccount);
+    */
     const access = cookies().get("access");
     if(!access)return redirect("/login");
-    
+
     console.log(`http://localhost:5000/${model}/get${multi}/${param1}${param2}`)
     const serverFetch = await fetch(
         `http://localhost:5000/${model}/get${multi}/${param1}${param2}`,
@@ -51,28 +56,18 @@ export async function getFetch(model, multi, param1, param2){
     console.log(response);
     return response;
 }
-export async function putFetch(model, prn, identifier_1, identifier_2, body){
+export async function putFetch(model, param1, param2, body){
     /* 
-        router.put("/update/:prn/:className/:date", updateAppointment);
-        router.put("/update/:prn/:className/:id", updateEncounter);
-        router.put("/update/:prn/:className", updateFlowsheets);
-        router.put("/update/:prn/:className/:type", updateHistory);
-        router.put("/update/:prn/:className", updateItem);
-        router.put("/update/:prn/:className", updatePatient);
-        router.put("/update/:prn/:className/:type/?:name", updatePeople);
-        router.put("/update/:prn/:className/:encounterDate/:billId", updateBill);
-        router.put("/update/:prn/:className/:id", updateDir);
+        router.put("/update/:title/:date", updatePost);
+        router.put("/update/:userName", updateAccount);
     */
-    const dbname = cookies().get("database_selected");
-    if(!dbname) return redirect("/");
-    
-    const className = cookies().get('className');
-    if(!className) return redirect("/login")
+    const access = cookies().get("access");
+    if(!access)return redirect("/login");
 
-    console.log(`http://localhost:5000/${model}/update/${prn}/${className.value}${identifier_1}${identifier_2}`)
-    const serverFetch = await fetch(`http://localhost:5000/${model}/update/${prn}/${className.value}${identifier_1}${identifier_2}`, {
+    console.log(`http://localhost:5000/${model}/update/${param1}${param2}`)
+    const serverFetch = await fetch(`http://localhost:5000/${model}/update/${param1}${param2}`, {
         method: "PUT",
-        headers: {'Content-Type': 'application/json', dbname: dbname.value},
+        headers: {'Content-Type': 'application/json', access},
         next: {revalidate: 100},
         body: JSON.stringify(body)
     });
@@ -80,56 +75,35 @@ export async function putFetch(model, prn, identifier_1, identifier_2, body){
     console.log(response);
     return response
 }
-export async function deleteFetch(model, prn, identifier_1, identifier_2){
+export async function deleteFetch(model, param1, param2){
     /* 
-        router.delete("/delete/:prn/:className/:date", deleteAppointment);
-        router.delete("/delete/:prn/:className/:date", deleteEncounter);
-        router.delete("/delete/:prn/:className", deleteFlowsheets);
-        router.delete("/delete/:prn/:className", deleteItem);
-        router.delete("/delete/:prn/:className", deletePatient);
-        router.delete("/delete/:prn/:className/:type/?:name", deletePerson);
-        router.delete("/delete/:prn/:className/:encounterDate/:billId", deleteBill);
-        router.delete("/delete/:email", isAuthenticated, removeUsers);
-        router.delete("/delete/:prn/:className/:id", deleteDir);
+        router.delete("/delete/:title/:date", deletePost);
+        router.delete("/delete/:userName", deleteAccount);
     */
-    const dbname = cookies().get("database_selected");
-    if(!dbname) return redirect("/");
-    
-    const className = cookies().get('className');
-    if(!className) return redirect("/login");
+    const access = cookies().get("access");
+    if(!access)return redirect("/login");
 
-    console.log(`http://localhost:5000/${model}/delete/${prn}/${className.value}${identifier_1}${identifier_2}`)
-    const serverFetch = await fetch(`http://localhost:5000/${model}/delete/${prn}/${className.value}${identifier_1}${identifier_2}`, {
+    console.log(`http://localhost:5000/${model}/delete/${param1}${param2}`)
+    const serverFetch = await fetch(`http://localhost:5000/${model}/delete/${param1}${param2}`, {
         method: "DELETE",
-        headers: {'Content-Type': 'application/json', dbname: dbname.value},
+        headers: {'Content-Type': 'application/json', access},
         next: {revalidate: 100},
     });
     const response = await serverFetch.json();
     console.log(response);
     return response
 }
-export async function postFetch(model, prn, type, body){
+export async function postFetch(model, body){
     /* 
-        router.post("/create/:prn/:className", createAppointment);
-        router.post("/create/:prn/:className", createEncounter);
-        router.post("/create/:prn/:className", createFlowsheets);
-        router.post("/create/:prn/:className/:type", createHistory);
-        router.post("/create/:prn/:className", createMedsAndAllergies);
-        router.post("/create/:className", createPatient);
-        router.post("/create/:prn/:className/:type", createPerson);
-        router.post("/create/:prn/:className", createBill);
-        router.post("/create/:prn/:className", createDir);
+        router.post("/create", createPost);
     */
-    const dbname = cookies().get("database_selected");
-    if(!dbname) return redirect("/");
-    
-    const className = cookies().get('className');
-    if(!className) return redirect("/login");
+    const access = cookies().get("access");
+    if(!access)return redirect("/login");
 
-    console.log(`http://localhost:5000/${model}/create/${prn}/${className.value}${type}`)
-    const serverFetch = await fetch(`http://localhost:5000/${model}/create/${prn}/${className.value}${type}`, {
+    console.log(`http://localhost:5000/${model}/create`)
+    const serverFetch = await fetch(`http://localhost:5000/${model}/create`, {
         method: "POST",
-        headers: {'Content-Type': 'application/json', dbname: dbname.value},
+        headers: {'Content-Type': 'application/json', access},
         next: {revalidate: 1},
         body: JSON.stringify(body)
     });
