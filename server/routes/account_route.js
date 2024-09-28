@@ -1,5 +1,12 @@
 import express from 'express';
+import {
+    getAccount,
+    updateAccount,
+    deleteAccount,
+} from "../controllers/account_controller.js"
 const router = express.Router();
 
-
+router.get("/get/:userName", getAccount);
+router.put("/update/:userName", updateAccount);
+router.delete("/delete/:userName", deleteAccount);
 export default router
