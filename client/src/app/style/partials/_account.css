@@ -1,0 +1,7 @@
+.accountContainer{
+    text-align: center;
+    width: 50%;
+    margin: auto;
+    border-radius: 2rem;
+    border: .2rem  white solid;
+}
