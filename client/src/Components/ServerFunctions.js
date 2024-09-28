@@ -14,9 +14,9 @@ export async function login(formData){
     console.log(response);
     if(response.success){
         cookies().set("access", true, {maxAge: 60*60*1});
-        redirect('/dashboard');
+        return response;
     }else{
-        
+        return response;
     }
 }
 export async function signup(formData){
@@ -30,7 +30,9 @@ export async function signup(formData){
     console.log(response);
     if(response.success){
         cookies().set("access", true, {maxAge: 60*60*1});
-        redirect('/dashboard');
+        return response;
+    }else{
+        return response;
     }
 }
 
