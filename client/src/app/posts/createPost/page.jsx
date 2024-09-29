@@ -8,11 +8,12 @@ import { useRouter } from 'next/navigation';
 import { FaRegCreditCard } from "react-icons/fa";
 import { MdOutlineTitle } from "react-icons/md";
 import { LuSubtitles } from "react-icons/lu";
+import Navbar from "@/Components/Navbar";
 
 const CreatePost = () => {
     const router = useRouter();
     const {userName} = useContext(UserContext);
-    const [form, setForm] = useState({ title: "", text: "", userName: userName, date: "", desiredSkills: [], creditWorth: 0 });
+    const [form, setForm] = useState({ title: "", text: "", userName: userName, date: "", desiredSkills: [], creditWorth: null });
     const handleForm = (field, value) => setForm((prev) => { return { ...prev, [field]: value } });
     const [selectedOptions, setSelectedOptions] = useState([]);
     
@@ -151,6 +152,9 @@ const CreatePost = () => {
     }
 
     return (
+    <>
+            <Navbar></Navbar>
+    
         <div className="createCont">
             <form onSubmit={handleSubmit} className="createForm">
                 <div className="titleCont">
@@ -233,6 +237,8 @@ const CreatePost = () => {
                 </div>
             </form>
         </div>
+    </>
+
     )
 }
 
