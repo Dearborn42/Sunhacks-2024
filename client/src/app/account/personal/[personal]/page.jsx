@@ -6,6 +6,7 @@ import { FaCoins } from "react-icons/fa6";
 import { FaStar } from "react-icons/fa";
 import { getFetch, putFetch } from "@/Components/ServerFunctions";
 import Select from 'react-select';
+import Navbar from "@/Components/Navbar";
 
 const Account = ({ params }) => {
     const { update } = useContext(UserContext);
@@ -166,6 +167,7 @@ const Account = ({ params }) => {
     }
     return (
         <>
+        <Navbar></Navbar>
             {!userChanges ? 
                 (<div>No account</div>) 
                 : (

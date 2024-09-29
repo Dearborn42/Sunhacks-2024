@@ -80,3 +80,14 @@ body{
 svg{
   display: inline!important;
 }
+hr{
+  border: .2rem rgba(0, 0, 0, .1) solid;
+
+}
+.home{
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+  font-size: 3rem;
+}
