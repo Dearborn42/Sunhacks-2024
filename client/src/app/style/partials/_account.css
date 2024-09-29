@@ -1,8 +1,39 @@
 .accountContainer{
     text-align: center;
-    width: 50%;
+    width: 60%;
     margin: auto;
     margin-top: 5%;
     border-radius: 2rem;
-    border: .2rem  white solid;
+    padding: 1rem;
+
+    background-color:rgba(0, 0, 0, .05);
+    border: .2rem rgba(0, 0, 0, .1) solid;
+    box-shadow: 0 0 .2rem .1rem rgba(0, 0, 0, .1);
+}
+.accountContainer>div{}
+.accountTop{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.accountTop>div{
+    width: 50%;
+}
+.accountTop>div>svg{
+    color: #F0E100;
+}
+.accountTop>div:nth-child(1){
+    text-align: left;
+}
+.accountTop>div:nth-child(2){
+    text-align: right;
+}
+svg{
+    display: inline!important;
+}
+.skillContainer{
+    border-radius: .5rem;
+    background-color: white;
+    border: .2rem rgba(0, 0, 0, .1) solid;
+    box-shadow: 0 0 .2rem .1rem rgba(0, 0, 0, .1);
 }
