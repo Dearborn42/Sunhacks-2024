@@ -27,5 +27,10 @@ It correctly bundles React in production mode and optimizes the build for the be
 If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single-build dependency from your project.
 
 ## MongoDB ENV
-This project is connected to the database through MONGO_URI, SECRET_KEY, and PORT
-The MONGO_URI is "mongodb+srv://sunhacks:xjibeN6hZwyDkNh2@cluster0.wkbxq.mongodb.net/SkillShare"
+This project is connected to the database through MONGO_URI, SECRET_KEY, and PORT through a .env file that is placed into the root of the server folder.
+
+MONGO_URI="mongodb+srv://sunhacks:xjibeN6hZwyDkNh2@cluster0.wkbxq.mongodb.net/SkillShare"
+
+SECRET_KEY="ruehgierhgieurei"
+
+PORT=5000
