@@ -1,7 +1,10 @@
 "use client";
 import React from 'react';
 import Link from 'next/link';
-const Navbar = () => {
+import { useContext } from 'react';
+import { UserContext } from '@/app/layout';
+const Navbar = ({move}) => {
+    const { userName } = useContext(UserContext);
     return (
         <>
             <div className='navy'>
@@ -11,7 +14,7 @@ const Navbar = () => {
                 <div>
                 <Link href={"../dashboard"}>Dashboard</Link>
                 <Link href={"../posts"}>Posts</Link>
-                <Link href={"../account"}>Account</Link>
+                <button onClick={() => move(`./account/personal/${userName}`)}>Accounts</button>
                 <button>Logout</button>
                 </div>
                 

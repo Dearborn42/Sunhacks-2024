@@ -20,6 +20,7 @@ export default function LoginPage(){
         login(form).then(result => {
             if(result.success){
                 update(result.user);
+                console.log(result.user);
                 router.push("/dashboard");
             }else{
                 alert("Wrong Email or Password");

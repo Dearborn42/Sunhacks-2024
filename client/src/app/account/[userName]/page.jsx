@@ -8,6 +8,7 @@ import { getFetch } from '@/Components/ServerFunctions';
 export default function page({params}){
     const [ account, setAccount ] = useState({});
     const [ posts, setPosts ] = useState([]);
+    const router = useRouter();
 
     useEffect(() => {
         getFetch("accounts", "", params.userName).then((result) => {
@@ -32,7 +33,7 @@ export default function page({params}){
             <br />
             <h1>{account.skills}</h1>
             <br />
-            <h1>{account.pastWorks}</h1>
+            {/* <h1>{account.pastWorks}</h1> */}
             <br />
             <h1>{account.credits}</h1>
             <br />
@@ -52,6 +53,7 @@ export default function page({params}){
                     ))
                 )    
             }
+            <button onClick={() => router.push(`/messaging/${params.userName}`)}>Message {params.userName}</button>
         </div>
     )
 }

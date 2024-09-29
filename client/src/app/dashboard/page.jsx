@@ -8,10 +8,10 @@ import { useRouter } from 'next/navigation';
 import { getFetch } from '@/Components/ServerFunctions';
 import Navbar from '@/Components/Navbar';
 const Dashboard = () => {
-    
     const router = useRouter();
     const {skills} = useContext(UserContext);
     const [posts, setPosts] = useState([]);
+    const { userName } = useContext(UserContext);
 
     useEffect(() => {
         if(!skills){
@@ -28,12 +28,16 @@ const Dashboard = () => {
             return;
         }
     }, [])
+
+    function shift(link){
+        router.push(link);
+    }
     
     return (
         <>
-            <Navbar></Navbar>
+            <Navbar move={shift}></Navbar>
             <div>Welcome to the Dashboard</div>
-            <Link href="../account">Account</Link>
+            <button onClick={()=>router.push(`./account/${userName}`)}>Account</button>
             <Link href="../posts/createPost">Create Post</Link>
             <div>
                 {posts.length > 0 ? (

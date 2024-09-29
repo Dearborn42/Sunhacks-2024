@@ -13,6 +13,19 @@ export async function getAccount(req, res){
     }
 }
 
+export async function getPersonalAccount(req, res){
+    const { userName } = req.params;
+    try {
+        const user = await Account.findOne({userName});
+        if (user)
+            return res.status(200).json({success: true, user: JSON.stringify(user)});
+
+        return res.status(404).json({success: false});
+    } catch (error) {
+        res.status(500).json({success: false, error: error.message});
+    }
+}
+
 export async function updateAccount(req, res){
     const { userName } = req.params;
     try {
