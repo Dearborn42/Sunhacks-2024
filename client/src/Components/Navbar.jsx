@@ -16,9 +16,9 @@ const Navbar = ({move}) => {
                 </div>
                 <div>
                 <Link href={"../dashboard"}>Dashboard</Link>
-                <Link href={"../posts"}>Posts</Link>
+                <Link href={"../posts/createPost"}>Create Post</Link>
                 <button onClick={() => move(`./account/personal/${userName}`)}>Accounts</button>
-                <button>Logout</button>
+                <Link href={"../"}>Logout</Link>
                 <div>Credits: {credits} <FaCoins/></div>
                 </div>
                 
