@@ -9,6 +9,7 @@
     background-color:rgba(0, 0, 0, .05);
     border: .2rem rgba(0, 0, 0, .1) solid;
     box-shadow: 0 0 .2rem .1rem rgba(0, 0, 0, .1);
+    margin-bottom: 3rem;
 }
 .accountTop{
     display: flex;
@@ -34,6 +35,7 @@ hr{
 }
 svg{
     display: inline!important;
+    align-items: center;
 }
 .skillContainer{
     margin-top: .5rem;
@@ -45,8 +47,31 @@ svg{
 }
 .worksContainer{
     margin-top: .5rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+.worksContainer>div{
+    display: flex;
+    flex-direction: column;
     border-radius: .5rem;
+    padding: 1rem;
+    width: calc(50% - 1rem);
+    min-height: 30vh;
     background-color: white;
     border: .2rem rgba(0, 0, 0, .1) solid;
     box-shadow: 0 0 .2rem .1rem rgba(0, 0, 0, .1);
+
+}
+.worksContainer svg{
+    color: #F0E100;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.help{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
 }

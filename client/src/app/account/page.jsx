@@ -4,14 +4,15 @@ import React from 'react';
 import { useContext } from 'react';
 import {UserContext} from '../layout';
 import { FaCoins } from "react-icons/fa6";
-
+import { FaStar } from "react-icons/fa";
 const Account = () => {
     const {name, userName, password, email, skills:userSkills, pastWorks, credits, averageRating, update} = useContext(UserContext);
     return (
         <>
+        
             <div className="accountContainer">
                 <div className="accountTop">
-                    <div>{userName} {averageRating} </div>
+                    <div>{userName} {averageRating} <FaStar/></div>
                     <div>{credits} <FaCoins/></div>
                 </div>
                 <div className="accountTop">
@@ -33,7 +34,11 @@ const Account = () => {
                     {pastWorks.map((x)=>{
                         return(
                             <div>
-                                <div>{x[0]}{x[2]}</div>
+                                <div className="help">
+                                <div>{x[0]}</div>
+                                <div>{x[2]}<FaStar/></div>
+                                </div>
+                         
                                 <div>{x[1]}</div>
                             </div>
                         );
