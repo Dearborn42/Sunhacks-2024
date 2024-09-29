@@ -30,6 +30,14 @@ export default function page({params}){
             <br />
             <h1>{post.creditWorth}</h1>
             <br />
+            <button 
+                className="bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-2 px-4 
+                rounded focus:outline-none focus:shadow-outline mr-2"
+                type="button"
+                onClick={() => window.history.back()} // Adjust this for custom navigation logic
+            >
+                Back
+            </button>
         </div>
     )
 }

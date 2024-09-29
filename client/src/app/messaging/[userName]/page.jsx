@@ -4,6 +4,7 @@ import { UserContext } from "@/app/layout";
 import axios from "axios";
 import socketio from "socket.io-client";
 import { useRouter } from 'next/navigation';
+import Link from "next/link";
 
 export default function Home() {
     const { userName } = useContext(UserContext);
@@ -69,6 +70,14 @@ export default function Home() {
             }
             <div className="fixed bottom-0 left-0 w-full bg-white shadow-md rounded-t-lg p-4">
                 <form className="flex items-center justify-between" onSubmit={handleSubmit}>
+                    <button 
+                        className="bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-2 px-4 
+                        rounded focus:outline-none focus:shadow-outline mr-2"
+                        type="button"
+                        onClick={() => window.history.back()} // Adjust this for custom navigation logic
+                    >
+                        Back
+                    </button>
                     <div className="flex-grow mr-2">
                         <input
                             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 
