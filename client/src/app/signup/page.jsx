@@ -6,6 +6,12 @@ import Select from 'react-select';
 import {UserContext} from '../layout';
 import { useRouter } from 'next/navigation';
 import Link from "next/link";
+import { MdOutlineMail } from "react-icons/md";
+import { RiLockPasswordLine } from "react-icons/ri";
+import { IoPersonOutline } from "react-icons/io5";
+import { CgProfile } from "react-icons/cg";
+import Image from 'next/image';
+import img from '../../public/image.png';
 
 export default function SignUpPage(){
     const {update} = useContext(UserContext);
@@ -140,73 +146,107 @@ export default function SignUpPage(){
 
 
     return (
-        <div>
-            <form onSubmit={handleSubmit} className="signCont">
-                <input
-                    className="text-black" 
-                    type="email"
-                    autoComplete="true"
-                    name="email"
-                    id="email"
-                    placeholder="Enter your email address"
-                    value={form.email}
-                    required
-                    onChange={(e) => handleForm("email", e.target.value)}
-                />
-                <input
-                    className="text-black" 
-                    type="name"
-                    autoComplete="true"
-                    name="name"
-                    id="name"
-                    placeholder="Enter your name"
-                    value={form.name}
-                    required
-                    onChange={(e) => handleForm("name", e.target.value)}
-                />
-                <input
-                    className="text-black" 
-                    type="usernme"
-                    autoComplete="true"
-                    name="usernme"
-                    id="usernme"
-                    placeholder="Enter your userName"
-                    value={form.userName}
-                    required
-                    onChange={(e) => handleForm("userName", e.target.value)}
-                />
-                <input
-                    className="text-black"
-                    type="password"
-                    autoComplete="true"
-                    name="password"
-                    id="password"
-                    placeholder="Enter your password"
-                    value={form.password}
-                    required
-                    onChange={(e) => handleForm("password", e.target.value)}
-                />
-
-                <label htmlFor="foo_select" className="screen-reader-text">Click to select an option</label>
-
-                <Select
-                id="foo_select"
-                name="foo_select"
-                options={options}
-                isMulti
-                placeholder="Click to select an option..."
-                value={selectedOptions}
-                onChange={handleChange}
-                className="dropdown text-black"
-                styles={{
-                    container: (provided) => ({
-                    ...provided,
-                    width: 300,
-                    }),
-                }}
-                />
-
-                <button type="submit">Signup</button>
+        <div className="signCont">
+            <form onSubmit={handleSubmit} className="signForm">
+                <div className="imgCont">
+                    <Image
+                    src={img}
+                    width={500}
+                    height={500}
+                    alt="signup"
+                    />
+                </div>
+                <div className="signInfo">
+                    <h1 className="title">Sign Up</h1>
+                    <div className="inputCont">
+                        <label htmlFor="email">Email</label>
+                        <div>
+                            <MdOutlineMail className="icon"/>
+                            <input
+                                className="text-black" 
+                                type="email"
+                                autoComplete="true"
+                                name="email"
+                                id="email"
+                                placeholder="example@gmail.com"
+                                value={form.email}
+                                required
+                                onChange={(e) => handleForm("email", e.target.value)}
+                            />
+                        </div>
+                    </div>
+                    <div className="inputCont">
+                        <label htmlFor="name">Name</label>
+                        <div>
+                            <IoPersonOutline className="icon"></IoPersonOutline>
+                            <input
+                                className="text-black" 
+                                type="name"
+                                autoComplete="true"
+                                name="name"
+                                id="name"
+                                placeholder="John Doe"
+                                value={form.name}
+                                required
+                                onChange={(e) => handleForm("name", e.target.value)}
+                            />
+                        </div>
+                    </div>
+                    <div className="inputCont">
+                        <label htmlFor="username">Username</label>
+                        <div>
+                            <CgProfile className="icon"></CgProfile>
+                            <input
+                                className="text-black" 
+                                type="usernme"
+                                autoComplete="true"
+                                name="usernme"
+                                id="usernme"
+                                placeholder="Pibble"
+                                value={form.userName}
+                                required
+                                onChange={(e) => handleForm("userName", e.target.value)}
+                            />
+                        </div>
+                    </div>
+                    <div className="inputCont">
+                        <label htmlFor="password">Password</label>
+                        <div>
+                            <RiLockPasswordLine className="icon"/>
+                            <input
+                                className="text-black"
+                                type="password"
+                                autoComplete="true"
+                                name="password"
+                                id="password"
+                                placeholder="******"
+                                value={form.password}
+                                required
+                                onChange={(e) => handleForm("password", e.target.value)}
+                            />
+                        </div>
+                    </div>
+                    <div className="skillCont">
+                        <Select
+                        id="foo_select"
+                        name="foo_select"
+                        options={options}
+                        isMulti
+                        placeholder="Select your skills"
+                        value={selectedOptions}
+                        onChange={handleChange}
+                        className="dropdown text-black skillDrop"
+                        styles={{
+                            container: (provided) => ({
+                            ...provided,
+                            width: 300,
+                            }),
+                        }}
+                        />
+                    </div>
+                    <p>Have an account already? <Link href="../login" className="login">Login</Link></p>
+                    <button type="submit">Signup</button>
+                </div>
             </form>
         </div>
     )

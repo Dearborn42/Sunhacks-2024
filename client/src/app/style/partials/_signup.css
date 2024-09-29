@@ -1,0 +1,119 @@
+.signCont {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: white;
+}
+
+.signForm {
+    width: 80vw;
+    height: 85vh;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 1rem;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: row;
+    box-shadow: 0 0 .2rem .1rem rgb(0 0 0 / .1);
+    border: .2rem rgba(0, 0, 0, 0.1) solid;
+}
+
+.signInfo {
+    width: 45%;
+    padding: 1.75rem 3rem 1rem 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    box-shadow: 0 0 .2rem .1rem rgb(0 0 0 / .1);
+    border: .2rem rgba(0, 0, 0, 0.1) solid;
+    border-radius: 0.75rem;
+}
+
+.title {
+    width: 100%;
+    text-decoration: solid;
+    font-size: 2.25rem;
+    color: black;
+}
+
+.inputCont {
+    width: 100%;
+    margin: 0.5rem 0rem 0.5rem 0rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.inputCont div .icon {
+    position: absolute;
+    top: 1.8rem;
+    left: 0.2rem;
+    color: black;
+    font-size: 1.75rem;
+}
+
+.inputCont div input {
+    width: 100%;
+    padding: 0.2rem 0.2rem 0.25rem 2.35rem;
+    font-size: 1rem;
+    border-radius: 0.15rem;
+    border: none;
+    border-bottom: 2px solid black;
+    background-color: transparent;
+    color: wblackhite;
+}
+
+.inputCont div input::placeholder {
+    color: black;
+}
+
+.inputCont label {
+    font-size: 1rem;
+    margin-bottom: 0.2rem;
+    color: black;
+}
+
+.signInfo p {
+    font-size: 0.8rem;
+    margin: 1.5rem 0rem 0rem 1rem;
+    color: black;
+}
+
+.login {
+    text-decoration: underline;
+    color: rgb(28, 0, 210);
+}
+
+.skillCont{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    border: black;
+}
+
+.skillDrop{
+    width: 100% !important;
+    margin-top: 0.5rem;
+}
+
+.signInfo button {
+    width: 70%;
+    margin: 1rem 0rem 0rem 0rem;
+    padding: 0.5rem 0.75rem 0.5rem 0.75rem;
+    background-color: rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 .2rem .1rem rgb(0 0 0 / .1);
+    border: .2rem rgba(0, 0, 0, 0.1) solid;
+    color: black;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+}
+
+.imgCont {
+    width: 55%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
