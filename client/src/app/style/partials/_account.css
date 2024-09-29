@@ -1,6 +1,19 @@
 *{
     font-family: dougie;
 }
+.accountContainer2{
+    text-align: center;
+    width: 80%;
+    margin: auto;
+    margin-top: 5%;
+    border-radius: 2rem;
+    padding: 1rem;
+
+    background-color:rgba(0, 0, 0, .05);
+    border: .2rem rgba(0, 0, 0, .1) solid;
+    box-shadow: 0 0 .2rem .1rem rgba(0, 0, 0, .1);
+    margin-bottom: 3rem;
+}
 .accountContainer{
     text-align: center;
     width: 60%;
@@ -77,4 +90,70 @@ svg{
     display: flex;
     justify-content: space-between;
     margin-bottom: 2rem;
+}
+
+.postCont{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.postTitle{
+    margin-top: 1rem;
+    font-size: 1.25rem;
+    text-align: start;
+}
+
+.postContCont{
+    background-color: white;
+    border: .2rem rgba(0, 0, 0, .1) solid;
+    box-shadow: 0 0 .2rem .1rem rgba(0, 0, 0, .1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 45%;
+    border-radius: 0.75rem;
+    margin: 0.5rem;
+    padding: 0.5rem;
+}
+
+.firstRow{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    padding: 0rem 1rem 0.5rem 0rem;
+    align-items: center;
+}
+
+.accountTitle{
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+.accountDate{
+    font-weight: normal;
+    font-size: 1rem;
+}
+
+.info2{
+    width: 90%;
+    height: auto;
+    padding: 0.25rem 0.75rem 0.75rem 0rem;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+.description{
+    font-size: 0.9rem;
+}
+.details{
+    font-size: 1.1rem;
+}
+.message{
+    border-radius: .5rem;
+    border: solid green .2rem;
+    background-color: green;
+    color: white;
+    padding: .2rem .6rem .2rem .6rem;
 }
