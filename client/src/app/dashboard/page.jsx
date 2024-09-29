@@ -9,7 +9,7 @@ import { getFetch } from '@/Components/ServerFunctions';
 
 const Dashboard = () => {
     const router = useRouter();
-    const {skills, update} = useContext(UserContext);
+    const {skills} = useContext(UserContext);
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
@@ -40,6 +40,7 @@ const Dashboard = () => {
                             <h3>{post.title}</h3>
                             <p>{post.text}</p>
                             <p>Skills needed: {post.desiredSkills.join(", ")}</p>
+                            <p>Date: {post.date}</p>
                         </div>
                     ))
                 ) : (

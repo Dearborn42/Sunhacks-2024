@@ -26,6 +26,16 @@ export async function getPost(req, res){
     }
 }
 
+export async function getPersonalPosts(req, res){
+    const { userName } = req.params;
+    try {
+        const posts = await Post.find({userName});
+        return res.status(200).json({success: true, posts: JSON.stringify(posts)});
+    } catch (error) {
+        return res.status(500).json({success: false, message: error.message});
+    }
+}
+
 export async function createPost(req, res){
     try {
         const post = new Post(req.body);

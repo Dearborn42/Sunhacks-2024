@@ -7,6 +7,7 @@ import { getFetch } from '@/Components/ServerFunctions';
 
 export default function page({params}){
     const [ account, setAccount ] = useState({});
+    const [ posts, setPosts ] = useState([]);
 
     useEffect(() => {
         getFetch("accounts", "", params.userName).then((result) => {
@@ -16,6 +17,13 @@ export default function page({params}){
                 alert("Server error: reload page and log back in");
             }
         });
+        getFetch("posts", "-personal", params.userName).then((result) => {
+            if(result.success){
+                setPosts(JSON.parse(result.posts));
+            }else{
+                alert("Server Error: reload page and log back in");
+            }
+        })
     }, []);
 
     return (
@@ -30,6 +38,20 @@ export default function page({params}){
             <br />
             <h1>{account.averageRating}</h1>
             <br />
+            {posts.length == 0 ? 
+                (<div> You have no posts </div>) 
+            :
+                (
+                    posts.map((post, index) => (
+                        <div key={index}>
+                            <h3>{post.title}</h3>
+                            <p>{post.text}</p>
+                            <p>Skills needed: {post.desiredSkills.join(", ")}</p>
+                            <p>Date: {post.date}</p>
+                        </div>
+                    ))
+                )    
+            }
         </div>
     )
 }
