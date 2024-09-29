@@ -3,9 +3,9 @@ import Account from "../models/Account.js";
 export async function getAccount(req, res){
     const { userName } = req.params;
     try {
-        const user = await Account.findOne({userName});
+        const user = await Account.findOne({userName}, "userName skills pastWorks credits averageRating");
         if (user)
-            return res.status(200).json({success: true, user});
+            return res.status(200).json({success: true, user: JSON.stringify(user)});
 
         return res.status(404).json({success: false});
     } catch (error) {

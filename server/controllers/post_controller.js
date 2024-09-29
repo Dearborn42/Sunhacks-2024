@@ -14,9 +14,9 @@ export async function getPosts(req, res){
 }
 
 export async function getPost(req, res){
-    const { title, date } = req.params;
+    const { id } = req.params;
     try {
-        const post = await Post.findOne({ title, date });
+        const post = await Post.findOne({ _id: id });
         if(post)
             return res.status(200).json({success: true, post: JSON.stringify(post)});
 
