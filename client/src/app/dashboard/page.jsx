@@ -30,19 +30,22 @@ const Dashboard = () => {
     }, [])
     
     return (
+
         <>
             <Navbar></Navbar>
-            <div>Welcome to the Dashboard</div>
-            <Link href="../account">Account</Link>
-            <Link href="../posts/createPost">Create Post</Link>
-            <div>
+            <div className='dashWel'>Welcome to the Dashboard</div>
+            <div className='dashPostBig'>
                 {posts.length > 0 ? (
                     posts.map((post, index) => (
-                        <div key={index} onClick={() => {router.push(`/dashboard/${post._id}`)}}>
-                            <h3>{post.title}</h3>
+                        <div className='dashPostCon' key={index} >
+                            <h3><div>{post.title}</div> <div>Credits: {post.creditWorth}</div></h3>
                             <p>{post.text}</p>
                             <p>Skills needed: {post.desiredSkills.join(", ")}</p>
-                            <p>Date: {post.date}</p>
+                            <div>
+                            <p>Due Date: {post.date} </p>
+                            <button onClick={() => {router.push(`/dashboard/${post._id}`)}}>Accept</button>
+                            </div>
+                            
                         </div>
                     ))
                 ) : (

@@ -21,7 +21,7 @@ body{
   background-color:rgba(0, 0, 0, .05);
     border-bottom: .2rem rgba(0, 0, 0, .1) solid;
     box-shadow: 0 0 .2rem .1rem rgba(0, 0, 0, .1);
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     padding: 1rem;
     display: flex;
     justify-content: space-between;
@@ -33,4 +33,50 @@ body{
   display: flex;
   justify-content: right;
   gap: 1rem;
+}
+.dashWel{
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.dashPostBig{
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  margin: auto;
+  gap: 2rem;
+  justify-content: center;
+  height: 45vh;
+
+}
+.dashPostCon{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: calc(33% - .66rem)!important;
+  padding: .5rem;
+  border-radius: .5rem;
+  background-color:rgba(0, 0, 0, .05);
+  border-bottom: .2rem rgba(0, 0, 0, .1) solid;
+  box-shadow: 0 0 .2rem .1rem rgba(0, 0, 0, .1);
+}
+.dashPostCon h3{
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+.dashPostCon>div{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.dashPostCon button{
+  border-radius: .5rem;
+  border: solid green .2rem;
+  background-color: green;
+  color: white;
+  padding: .2rem .6rem .2rem .6rem;
+}
+svg{
+  display: inline!important;
 }
