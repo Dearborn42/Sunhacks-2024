@@ -8,7 +8,7 @@ import Link from "next/link";
 import { MdOutlineMail } from "react-icons/md";
 import { RiLockPasswordLine } from "react-icons/ri";
 import Image from 'next/image';
-import img from '../../public/image.png'
+import img from '../../public/image.png';
 
 export default function LoginPage(){
     const { update } = useContext(UserContext);
@@ -58,7 +58,7 @@ export default function LoginPage(){
                                 autoComplete="true"
                                 name="password"
                                 id="password"
-                                placeholder="Enter your password"
+                                placeholder="******"
                                 value={form.password}
                                 required
                                 onChange={(e) => handleForm("password", e.target.value)}
