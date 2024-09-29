@@ -15,10 +15,10 @@ const Navbar = ({move}) => {
                     TradeTrading
                 </div>
                 <div>
-                <Link href={"../dashboard"}>Dashboard</Link>
-                <Link href={"../posts/createPost"}>Create Post</Link>
+                <Link href={"../../dashboard"}>Dashboard</Link>
+                <Link href={"../../posts/createPost"}>Create Post</Link>
                 <button onClick={() => move(`./account/personal/${userName}`)}>Accounts</button>
-                <Link href={"../"}>Logout</Link>
+                <Link href={"../../"}>Logout</Link>
                 <div>Credits: {credits} <FaCoins/></div>
                 </div>
                 
