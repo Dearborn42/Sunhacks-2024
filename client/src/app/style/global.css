@@ -5,3 +5,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: dougie;
+  src: url(../fonts/MintSansBold.otf);
+}
+*{
+  font-family: dougie;
+}
+.navy{
+  
+}

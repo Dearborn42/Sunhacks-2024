@@ -12,11 +12,11 @@ const Account = () => {
         
             <div className="accountContainer">
                 <div className="accountTop">
-                    <div>{userName} {averageRating} <FaStar/></div>
-                    <div>{credits} <FaCoins/></div>
+                    <div>Username: {userName} {averageRating} <FaStar/></div>
+                    <div>Credits: {credits} <FaCoins/></div>
                 </div>
                 <div className="accountTop">
-                    <div>{email} - {name}</div>
+                    <div>Personal Info: {email} - {name}</div>
                 </div>
                 <hr />                
                 <div style={{textAlign:"left"}}>Skills:</div>
