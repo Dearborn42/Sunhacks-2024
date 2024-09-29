@@ -45,7 +45,7 @@ const Dashboard = () => {
                             <p>Skills needed: {post.desiredSkills.join(", ")}</p>
                             <div>
                             <p>Due Date: {post.date} </p>
-                            <button onClick={() => {router.push(`/dashboard/${post._id}`)}}>Accept</button>
+                            <button onClick={() => router.push(`/account/${post.userName}`)} >Go to Account</button>
                             </div>
                         </div>
                     ))

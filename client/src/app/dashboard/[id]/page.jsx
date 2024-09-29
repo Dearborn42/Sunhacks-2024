@@ -19,17 +19,13 @@ export default function page({params}){
         });
     }, []);
     return (
-        <div>
-            <h1 onClick={() => router.push(`/account/${post.userName}`)}>{post.userName}</h1>
-            <br />
+        <div >
+            <h1 >{post.userName}</h1>
             <h1>{post.date}</h1>
-            <br />
             <h1>{post.title}</h1>
-            <br />
             <h1>{post.text}</h1>
-            <br />
             <h1>{post.creditWorth}</h1>
-            <br />
+            <div>
             <button 
                 className="bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-2 px-4 
                 rounded focus:outline-none focus:shadow-outline mr-2"
@@ -38,6 +34,9 @@ export default function page({params}){
             >
                 Back
             </button>
+            <button className="accounty" onClick={() => router.push(`/account/${post.userName}`)}>Go to Account</button>
+            </div>
+           
         </div>
     )
 }
