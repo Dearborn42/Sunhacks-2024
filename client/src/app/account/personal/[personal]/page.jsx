@@ -187,7 +187,6 @@ const Account = ({ params }) => {
                                 <div>Username: {params.personal} {userChanges.averageRating} <FaStar /></div>
                             )}
                             <div>Credits: {userChanges.credits} <FaCoins /></div>
-                            <button onClick={edit ? updateAccount : () => setEdit(true)}>{edit ? "Save" : "Edit"}</button>
                         </div>
                         
                         <div className="accountTop">
@@ -207,9 +206,13 @@ const Account = ({ params }) => {
                                             onChange={(e) => handleChanges({name: e.target.value})}
                                         />
                                     </label>
+                                    <button onClick={edit ? updateAccount : () => setEdit(true)} className="accountBtn">{edit ? "Save" : "Edit"}</button>
                                 </>
                             ) : (
+                                <>
                                 <div>Personal Info: {userChanges.email} - {userChanges.name}</div>
+                                <button onClick={edit ? updateAccount : () => setEdit(true)} className="accountBtn">{edit ? "Save" : "Edit"}</button>
+                                </>
                             )}
                         </div>
                         

@@ -91,3 +91,13 @@ hr{
   justify-content: center;
   font-size: 3rem;
 }
+
+.accountBtn{
+    border-radius: .5rem;
+    border: solid green .2rem;
+    background-color: green;
+    color: white;
+    padding: .2rem .6rem .2rem .6rem;
+    /* position: absolute; */
+    /* top: 1.8rem; right: 1.5rem; */
+}
