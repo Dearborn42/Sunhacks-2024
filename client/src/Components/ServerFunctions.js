@@ -36,18 +36,18 @@ export async function signup(formData){
     }
 }
 
-export async function getFetch(model, multi, param1, param2){
+export async function getFetch(model, multi, param1){
     /* 
         router.get("/get-multi/:skills", getPosts);
-        router.get("/get/:title/:date", getPost);
+        router.get("/get/:id", getPost);
         router.get("/get/:userName", getAccount);
     */
     const access = cookies().get("access");
     if(!access)return redirect("/login");
 
-    console.log(`http://localhost:5000/${model}/get${multi}/${param1}${param2}`)
+    console.log(`http://localhost:5000/${model}/get${multi}/${param1}`)
     const serverFetch = await fetch(
-        `http://localhost:5000/${model}/get${multi}/${param1}${param2}`,
+        `http://localhost:5000/${model}/get${multi}/${param1}`,
         {
             method: "GET",
             headers: {'Content-Type': 'application/json', access},

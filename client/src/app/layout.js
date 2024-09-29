@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
     "userName": "",
     "email" : "",
     "password" : "",
-    "skills" : [],
+    "skills" : false,
     "pastWorks" : [],
     "credits": 3,
     "averageRating": 3,
