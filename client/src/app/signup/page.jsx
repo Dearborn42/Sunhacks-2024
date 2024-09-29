@@ -8,6 +8,7 @@ import { useRouter } from 'next/navigation'
 
 export default function SignUpPage(){
     const {update} = useContext(UserContext);
+    const router = useRouter();
     const [form, setForm] = useState({ email: "", name: "", userName: "", password: "", skills: [] });
     const handleForm = (field, value) => setForm((prev) => { return { ...prev, [field]: value } });
     const [selectedOptions, setSelectedOptions] = useState([]);
