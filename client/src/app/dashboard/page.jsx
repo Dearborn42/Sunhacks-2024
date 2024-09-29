@@ -6,8 +6,9 @@ import {UserContext} from '../layout';
 import Link from "next/link";
 import { useRouter } from 'next/navigation';
 import { getFetch } from '@/Components/ServerFunctions';
-
+import Navbar from '@/Components/Navbar';
 const Dashboard = () => {
+    
     const router = useRouter();
     const {skills} = useContext(UserContext);
     const [posts, setPosts] = useState([]);
@@ -30,6 +31,7 @@ const Dashboard = () => {
     
     return (
         <>
+            <Navbar></Navbar>
             <div>Welcome to the Dashboard</div>
             <Link href="../account">Account</Link>
             <Link href="../posts/createPost">Create Post</Link>
