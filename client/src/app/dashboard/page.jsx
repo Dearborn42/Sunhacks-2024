@@ -3,7 +3,6 @@
 import React from 'react'
 import {useEffect, useState, useContext} from 'react'
 import {UserContext} from '../layout';
-import Link from "next/link";
 import { useRouter } from 'next/navigation';
 import { getFetch } from '@/Components/ServerFunctions';
 import Navbar from '@/Components/Navbar';

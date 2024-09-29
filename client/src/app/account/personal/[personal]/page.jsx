@@ -7,6 +7,7 @@ import { FaStar } from "react-icons/fa";
 import { getFetch, putFetch } from "@/Components/ServerFunctions";
 import Select from 'react-select';
 import Navbar from "@/Components/Navbar";
+import Link from "next/link";
 
 const Account = ({ params }) => {
     const { update } = useContext(UserContext);
@@ -14,6 +15,7 @@ const Account = ({ params }) => {
     const [userChanges, setChanges] = useState(false);
     const [edit, setEdit] = useState(false);
     const [selectedOptions, setSelectedOptions] = useState([]);
+    const [posts, setPosts] = useState([]);
     const [ options, setOptions ] = useState([
         { value: 'gardening', label: 'Gardening' },
         { value: 'lawn_mowing', label: 'Lawn-Mowing' },
@@ -131,6 +133,13 @@ const Account = ({ params }) => {
     };
 
     useEffect(() => {
+        getFetch("posts", "-personal", params.personal).then((result) => {
+            if(result.success) {
+                setPosts(JSON.parse(result.posts))
+            }else{
+                alert("Server Error");
+            }
+        });
         getFetch("accounts", "-personal", params.personal).then((result) => {
             if (result.success) {
                 const userData = JSON.parse(result.user);
@@ -293,6 +302,25 @@ const Account = ({ params }) => {
                     </div>
                 )
             }
+            <div className='dashPostBig'>
+                {posts.length > 0 ? (
+                    posts.map((post, index) => (
+                        <div className='dashPostCon' key={index} >
+                            <h3><div>{post.title}</div> <div>Credits: {post.creditWorth}</div></h3>
+                            <p>{post.text}</p>
+                            <p>Skills needed: {post.desiredSkills.join(", ")}</p>
+                            <div>
+                            <p>Due Date: {post.date} </p>
+                            <Link href={`../../../dashboard/${post._id}`}>
+                                <button>Task Completed</button>
+                            </Link>
+                            </div>
+                        </div>
+                    ))
+                ) : (
+                    <div>You have 0 posts</div>
+                )}
+            </div>
         </>
     );
 }
