@@ -64,8 +64,12 @@
     color: wblackhite;
 }
 
-.inputCont div input::placeholder {
-    color: black;
+.inputCont div input:placeholder {
+    color: rgb(0, 0, 0, 0.5);
+}
+
+.inputCont div input::focus {
+    outline: none;
 }
 
 .inputCont label{

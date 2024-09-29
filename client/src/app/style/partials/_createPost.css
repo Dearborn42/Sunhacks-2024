@@ -89,7 +89,11 @@
 }
 
 .postInput div input::placeholder {
-    color: black;
+    color: rgb(0, 0, 0, 0.5);
+}
+
+.postInput div input:focus {
+    outline: none;
 }
 
 .postInput label {
@@ -128,6 +132,10 @@
     border-radius: 0.5rem;
     padding: 0.5rem;
     border: 1px solid black;
+}
+
+.info2 textarea:focus{
+    outline: none;
 }
 
 .subCont{

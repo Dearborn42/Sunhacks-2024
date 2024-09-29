@@ -13,7 +13,7 @@ import Navbar from "@/Components/Navbar";
 const CreatePost = () => {
     const router = useRouter();
     const {userName} = useContext(UserContext);
-    const [form, setForm] = useState({ title: "", text: "", userName: userName, date: "", desiredSkills: [], creditWorth: 0 });
+    const [form, setForm] = useState({ title: "", text: "", userName: userName, date: "", desiredSkills: [], creditWorth: null });
     const handleForm = (field, value) => setForm((prev) => { return { ...prev, [field]: value } });
     const [selectedOptions, setSelectedOptions] = useState([]);
     
