@@ -17,8 +17,7 @@ const Account = () => {
                 <div className="accountTop">
                     <div>{email} - {name}</div>
                 </div>
-                <div></div>
-                
+                <hr />                
                 <div style={{textAlign:"left"}}>Skills:</div>
                 <div className="skillContainer">
                     {userSkills.map((x)=>{
@@ -27,12 +26,16 @@ const Account = () => {
                         );
                     })}
                 </div>
-                <div>
+                <div style={{textAlign:"left"}}>
+                    Past Work:
                 </div>
-                <div className="skillContainer">
+                <div className="worksContainer">
                     {pastWorks.map((x)=>{
                         return(
-                            <div>{x}</div>
+                            <div>
+                                <div>{x[0]}{x[2]}</div>
+                                <div>{x[1]}</div>
+                            </div>
                         );
                     })}
                 </div>

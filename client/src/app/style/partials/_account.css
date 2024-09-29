@@ -10,7 +10,6 @@
     border: .2rem rgba(0, 0, 0, .1) solid;
     box-shadow: 0 0 .2rem .1rem rgba(0, 0, 0, .1);
 }
-.accountContainer>div{}
 .accountTop{
     display: flex;
     flex-direction: row;
@@ -18,6 +17,11 @@
 }
 .accountTop>div{
     width: 50%;
+    margin-bottom: .5rem;
+}
+hr{
+    border: .2rem rgba(0, 0, 0, .1) solid;
+
 }
 .accountTop>div>svg{
     color: #F0E100;
@@ -32,6 +36,15 @@ svg{
     display: inline!important;
 }
 .skillContainer{
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+    border-radius: .5rem;
+    background-color: white;
+    border: .2rem rgba(0, 0, 0, .1) solid;
+    box-shadow: 0 0 .2rem .1rem rgba(0, 0, 0, .1);
+}
+.worksContainer{
+    margin-top: .5rem;
     border-radius: .5rem;
     background-color: white;
     border: .2rem rgba(0, 0, 0, .1) solid;
