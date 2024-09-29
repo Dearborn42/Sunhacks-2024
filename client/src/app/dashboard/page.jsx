@@ -32,6 +32,7 @@ const Dashboard = () => {
         <>
             <div>Welcome to the Dashboard</div>
             <Link href="../account">Account</Link>
+            <Link href="../posts/createPost">Create Post</Link>
             <div>
                 {posts.length > 0 ? (
                     posts.map((post, index) => (
